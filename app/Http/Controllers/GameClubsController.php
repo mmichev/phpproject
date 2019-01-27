@@ -106,6 +106,9 @@ class GameClubsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gameclub = GameClub::find($id);
+        $gameclub->delete();
+
+     return redirect('/gameclubs')->with('success', 'Stock has been deleted Successfully');         
     }
 }

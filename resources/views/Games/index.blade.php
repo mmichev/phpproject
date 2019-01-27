@@ -31,8 +31,7 @@
         <td>{{$game -> GameName}}</td>
         <td>{{$game -> Type}}</td>
         
-        <td>
-            
+        <td>               
             <a class="btn btn-primary" href="{{route('games.show', $game -> id)}}" method="POST"> SHOW</a>
             <a class="btn btn-primary" href="{{route('games.edit', $game -> id)}}" method="POST"> EDIT</a>
         </td>

@@ -25,6 +25,14 @@
         <td>{{$gameclub -> Capacity}}</td>
         <td>{{$gameclub -> GameName}}</td>
         <td>
+        <form action="{{ route('gameclubs.destroy', $gameclub->id)}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+        </td>
+        <td>
+            
             
             <a class="btn btn-primary" href="{{route('gameclubs.show', $gameclub -> id)}}" method="POST"> SHOW</a>
             <a class="btn btn-primary" href="{{route('gameclubs.edit', $gameclub -> id)}}" method="POST"> EDIT</a>
