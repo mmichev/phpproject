@@ -46,6 +46,7 @@ class GamesController extends Controller
         $games['GameName'] =$request ->get('GameName');
         $games['Type'] =$request ->get('Type');
         $games->save();
+        return redirect('/games');
     }
 
     /**
@@ -57,7 +58,7 @@ class GamesController extends Controller
     public function show($id)
     {
         $games = Game::find($id);
-        return view('Games.show', compact('games','id'));
+        return view('Games.index', compact('games','id'));
     }
 
     /**
@@ -101,6 +102,9 @@ class GamesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $game = Game::find($id);
+        $game->delete();
+
+     return redirect('/games')->with('success', 'Game has been deleted Successfully'); 
     }
 }

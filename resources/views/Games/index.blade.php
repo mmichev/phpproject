@@ -35,10 +35,18 @@
             <a class="btn btn-primary" href="{{route('games.show', $game -> id)}}" method="POST"> SHOW</a>
             <a class="btn btn-primary" href="{{route('games.edit', $game -> id)}}" method="POST"> EDIT</a>
         </td>
+                <td>
+        <form action="{{ route('games.destroy', $game->id)}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+        </td>
         </tr>
         @endforeach
     </form>
 </table>
+      <a class="btn btn-success" href="{{route('games.create')}}" method="GET"> Create</a>
     </div>
 </div>
 @endsection

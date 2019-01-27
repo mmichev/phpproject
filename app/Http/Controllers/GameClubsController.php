@@ -109,6 +109,6 @@ class GameClubsController extends Controller
         $gameclub = GameClub::find($id);
         $gameclub->delete();
 
-     return redirect('/gameclubs')->with('success', 'Stock has been deleted Successfully');         
+     return redirect('/gameclubs')->with('success', 'Game Club has been deleted Successfully');         
     }
 }

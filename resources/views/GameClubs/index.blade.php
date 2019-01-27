@@ -24,6 +24,11 @@
         <td>{{$gameclub -> Name}}</td>
         <td>{{$gameclub -> Capacity}}</td>
         <td>{{$gameclub -> GameName}}</td>
+        
+        <td>         
+            <a class="btn btn-primary" href="{{route('gameclubs.show', $gameclub -> id)}}" method="POST"> SHOW</a>
+            <a class="btn btn-primary" href="{{route('gameclubs.edit', $gameclub -> id)}}" method="POST"> EDIT</a>
+        </td>
         <td>
         <form action="{{ route('gameclubs.destroy', $gameclub->id)}}" method="post">
                   @csrf
@@ -31,14 +36,9 @@
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
         </td>
-        <td>
-            
-            
-            <a class="btn btn-primary" href="{{route('gameclubs.show', $gameclub -> id)}}" method="POST"> SHOW</a>
-            <a class="btn btn-primary" href="{{route('gameclubs.edit', $gameclub -> id)}}" method="POST"> EDIT</a>
-        </td>
         @endforeach
     </form>
 </table>
+    <a class="btn btn-success" href="{{route('gameclubs.create')}}" method="GET"> Create</a>
 </div>
 @endsection

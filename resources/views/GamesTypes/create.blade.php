@@ -25,13 +25,13 @@
     <div class="form-group">
         {{csrf_field()}}
         <label for="type"> Type:</label>
-        <input type="text" class="form-control" type="Type" id="type"/>
+        <input type="text" class="form-control" name="Type" id="type"/>
     </div>
     
     <div class="form-group">
         {{csrf_field()}}
         <label for="description"> Description:</label>
-        <input type="text" class="form-control" description="Description" id="description"/>
+        <input type="text" class="form-control" name="Description" id="description"/>
     </div>
     
     <div class="form-group">

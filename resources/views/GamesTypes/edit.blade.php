@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-<form action="{{action('GamesTypesController@update' ,$gametype->id)}}" method="post">
+<form action="{{action('GameTypesController@update', $gametype->id)}}" method="post">
     {{csrf_field()}}
     <input type="hidden" class="form-control" name="_method" value="patch"/>
     <div class="form-group">

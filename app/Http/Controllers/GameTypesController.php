@@ -14,8 +14,8 @@ class GameTypesController extends Controller
      */
     public function index()
     {
-      $gametypes = GameType::all();
-        return view('GamesTypes.index')->with('gametypes',$gametypes);              
+        $gametypes = GameType::all();
+        return view('GamesTypes.index', compact('gametypes'));              
     }
 
     /**
@@ -57,7 +57,7 @@ class GameTypesController extends Controller
     public function show($id)
     {
         $gametype = GameType::find($id);
-        return view('GameTypes.show', compact('gametype','id'));
+        return view('GamesTypes.show', compact('gametype','id'));
     }
 
     /**
@@ -69,7 +69,7 @@ class GameTypesController extends Controller
     public function edit($id)
     {
         $gametype = GameType::find($id);
-        return view('GameTypes.edit' ,compact('gametype','id'));
+        return view('GamesTypes.edit' ,compact('gametype','id'));
     }
 
     /**
@@ -81,10 +81,10 @@ class GameTypesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,array(
+        $this->validate($request, [
         'Type' =>'required',
         'Description' =>'required',
-        ));
+        ]);
         
         $gametypes = GameType::find($id);
         $gametypes['Type'] =$request ->get('Type');
@@ -101,6 +101,9 @@ class GameTypesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gametype = GameType::find($id);
+        $gametype->delete();
+
+     return redirect('/gametypes')->with('success', 'Game type has been deleted Successfully'); 
     }
 }

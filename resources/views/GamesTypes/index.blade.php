@@ -32,14 +32,22 @@
         <td>{{$gametype -> Description}}</td>
         
         <td>
-            
-            <a class="btn btn-primary" href="{{route('gamestypes.show', $gametypes -> id)}}" method="POST"> SHOW</a>
-            <a class="btn btn-primary" href="{{route('gamestypes.edit', $gametypes -> id)}}" method="POST"> EDIT</a>
+        <a class="btn btn-primary" href="{{route('gametypes.show', $gametype->id)}}" method="POST"> SHOW</a>
+        </td>
+        <td>
+        <a class="btn btn-primary" href="{{route('gametypes.edit', $gametype->id)}}" method="POST"> EDIT</a></td>
+        <td>
+            <form action="{{ route('gametypes.destroy', $gametype->id)}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit">DELETE</button>
+                </form>
         </td>
         </tr>
         @endforeach
     </form>
 </table>
+       <a class="btn btn-success" href="{{route('gametypes.create')}}" method="GET"> Create</a>
     </div>
 </div>
 @endsection
